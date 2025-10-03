@@ -44,13 +44,13 @@ export default function Contact() {
             <div className="space-y-3 text-white">
               <p>
                 📧 Email:{" "}
-                <span className="font-medium text-gray-300">contact@example.com</span>
+                <span className="font-medium text-gray-300">harimahe.1317@gmail.com</span>
               </p>
               <p>
-                📞 Phone: <span className="font-medium text-gray-300">+91 98765 43210</span>
+                📞 Phone: <span className="font-medium text-gray-300">+91 98437 52544</span>
               </p>
               <p>
-                📍 Address: <span className="font-medium text-gray-300">Chennai, India</span>
+                📍 Address: <span className="font-medium text-gray-300">Tamil Nadu, India</span>
               </p>
             </div>
           </div>

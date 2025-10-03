@@ -1,4 +1,5 @@
 import NavLink from "@/components/NavLink/NavLink";
+import Image from "next/image";
 import React, { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 
@@ -11,7 +12,10 @@ export default function Header() {
     <header className="w-full sticky top-0 mt-5 z-50">
       <div className="flex justify-between items-center bg-white p-4 shadow-md rounded-full mx-4 md:mx-8">
         {/* Logo / Title */}
-        <h2 className="text-black font-bold text-2xl">Portfolio</h2>
+        <h2 className="text-black font-bold text-2xl flex items-center gap-2">
+          <Image src={"/logos/code.png"} width={50} height={50} alt={"Developer"} />
+          <span>Developer</span>
+        </h2>
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex gap-6">
@@ -40,9 +44,21 @@ export default function Header() {
       >
         <nav className="flex flex-col gap-2 p-4">
           <NavLink href="/" label="Home" onClick={() => setIsOpen(false)} />
-          <NavLink href="/about" label="About" onClick={() => setIsOpen(false)} />
-          <NavLink href="/resume" label="Resume" onClick={() => setIsOpen(false)} />
-          <NavLink href="/contact" label="Contact" onClick={() => setIsOpen(false)} />
+          <NavLink
+            href="/about"
+            label="About"
+            onClick={() => setIsOpen(false)}
+          />
+          <NavLink
+            href="/resume"
+            label="Resume"
+            onClick={() => setIsOpen(false)}
+          />
+          <NavLink
+            href="/contact"
+            label="Contact"
+            onClick={() => setIsOpen(false)}
+          />
         </nav>
       </div>
     </header>
