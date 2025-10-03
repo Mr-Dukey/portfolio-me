@@ -3,7 +3,7 @@ import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 
-// Use worker from local node_modules instead of CDN
+// Use worker from local node_modules
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.js",
   import.meta.url
@@ -19,9 +19,18 @@ export default function PDFViewer({
   pageNumber,
 }: PdfProps) {
   return (
-    <div className="w-full flex flex-col items-center ">
-      <Document file="/Hariharan.pdf" onLoadSuccess={onDocumentLoadSuccess}>
-        <Page pageNumber={pageNumber} width={800} />
+    <div className="w-full flex flex-col items-center">
+      <Document
+        file="/Hariharan.pdf"
+        onLoadSuccess={onDocumentLoadSuccess}
+        className="w-full"
+        renderMode="canvas"
+      >
+        <Page
+          pageNumber={pageNumber}
+          width={Math.min(800, window.innerWidth - 32)} // responsive width
+          className="mx-auto"
+        />
       </Document>
     </div>
   );

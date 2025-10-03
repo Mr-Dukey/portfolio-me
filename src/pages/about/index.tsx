@@ -28,59 +28,57 @@ export default function About() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 w-full min-h-[calc(100vh-150px)] overflow-hidden">
         {/* Left Column */}
-        <div className="relative flex items-center justify-center px-8 overflow-hidden">
+        <div className="relative flex items-center justify-center px-4 md:px-8 py-8 md:py-0 overflow-hidden">
           {/* Animated gradient background */}
-          <div className="absolute inset-0 blur-3xl opacity-70"></div>
+          <div className="absolute inset-0 blur-3xl opacity-50 "></div>
 
-          <div className="relative z-10 text-center md:text-left">
-            <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-cyan-600 to-purple-600 bg-clip-text text-transparent animate-text">
+          <div className="relative z-10 text-center md:text-left space-y-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-purple-600 bg-clip-text text-transparent animate-text">
               About Me
             </h1>
-            <p className="text-lg md:text-xl mb-6 bg-gradient-to-r from-blue-600 via-cyan-600 to-purple-500 bg-clip-text text-transparent animate-text">
-              I&apos;m Hariharan, a passionate Full-Stack Developer specializing in
-              building modern, responsive, and scalable web applications.
+            <p className="text-md sm:text-lg md:text-xl lg:text-2xl text-white bg-gradient-to-r from-blue-600 via-cyan-600 to-purple-500 bg-clip-text animate-text">
+              I&apos;m Hariharan, a passionate Full-Stack Developer specializing in building modern, responsive, and scalable web applications.
             </p>
           </div>
         </div>
 
         {/* Right Column */}
-        <div className="relative flex flex-col justify-center px-8 gap-8  text-white overflow-hidden">
+        <div className="relative flex flex-col justify-center px-4 md:px-8 py-8 gap-8 text-white overflow-hidden">
           {/* Skills Section */}
           <div className="space-y-4 relative overflow-hidden">
-            <h2 className="text-3xl font-semibold mb-4">Skills</h2>
+            <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Skills</h2>
             <div className="skills-scroll relative w-full overflow-hidden">
-              <div className="flex gap-6 animate-scroll">
+              <div className="flex gap-4 md:gap-6 animate-scroll">
                 {logos.concat(logos).map((logo, i) => (
                   <div
                     key={i}
-                    className="flex gap-2 items-center justify-center p-4 bg-gray-800 rounded-lg shadow-lg hover:scale-110 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-400 flex-shrink-0"
+                    className="flex gap-2 items-center justify-center p-3 md:p-4 bg-gray-800 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 hover:shadow-xl hover:shadow-cyan-400 flex-shrink-0"
                   >
-                    <Image src={`/logos/${logo}`} alt={logo} width={50} height={50} />
-                    <span>{logo.split(".")[0]}</span>
+                    <Image src={`/logos/${logo}`} alt={logo} width={40} height={40} className="md:w-12 md:h-12" />
+                    <span className="text-sm md:text-base">{logo.split(".")[0]}</span>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Experience / Projects Section */}
+          {/* Projects Section */}
           <div className="space-y-4">
-            <h2 className="text-3xl font-semibold">Projects & Experience</h2>
+            <h2 className="text-2xl sm:text-3xl font-semibold">Projects & Experience</h2>
             <div className="space-y-3">
-              <div className="p-4 bg-gray-800 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
-                <h3 className="font-bold text-lg">MCQ Web Application</h3>
-                <p className="text-sm text-gray-300">React + Node.js + MongoDB, JWT Auth.</p>
-              </div>
-              <div className="p-4 bg-gray-800 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
-                <h3 className="font-bold text-lg">Greeny</h3>
-                <p className="text-sm text-gray-300">React + Node.js + MongoDB, JWT Auth.</p>
-              </div>
-              <div className="p-4 bg-gray-800 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
-                <h3 className="font-bold text-lg">Portfolio Website</h3>
-                <p className="text-sm text-gray-300">
-                  Next.js, Tailwind CSS, animated gradient backgrounds and 3D carousel.
-                </p>
-              </div>
+              {[
+                { title: "MCQ Web Application", desc: "React + Node.js + MongoDB, JWT Auth." },
+                { title: "Greeny", desc: "React + Node.js + MongoDB, JWT Auth." },
+                { title: "Portfolio Website", desc: "Next.js, Tailwind CSS, animated gradient backgrounds and 3D carousel." },
+              ].map((project, idx) => (
+                <div
+                  key={idx}
+                  className="p-4 bg-gray-800 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+                >
+                  <h3 className="font-bold text-lg">{project.title}</h3>
+                  <p className="text-sm md:text-base text-gray-300">{project.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -98,13 +96,26 @@ export default function About() {
 
       {/* Styles */}
       <style jsx>{`
+        /* Animated Gradient Background */
+        @keyframes gradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        .animate-gradient {
+          background-size: 400% 400%;
+          animation: gradient 12s ease infinite;
+        }
+
         /* Animated Text Gradient */
         @keyframes text {
-          50% { filter: hue-rotate(90deg); }
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
         }
         .animate-text {
           background-size: 200% 200%;
-          animation: text 2s linear infinite;
+          animation: text 5s ease infinite;
         }
 
         /* Auto-Scroll Logos */
@@ -127,7 +138,7 @@ export default function About() {
           content: '';
           position: absolute;
           top: 0;
-          width: 80px;
+          width: 60px;
           height: 100%;
           z-index: 10;
         }
