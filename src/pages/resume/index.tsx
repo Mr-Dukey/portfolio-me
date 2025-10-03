@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout/Layout";
 import dynamic from "next/dynamic";
+import Head from "next/head";
 import { useState } from "react";
 const PDFViewer = dynamic(() => import("../../components/PDFViewer/PDFViewer"), {
   ssr: false,
@@ -14,6 +15,14 @@ export default function Resume() {
   };
   return (
     <Layout>
+      <Head>
+        <title>Developer || Resume</title>
+        <link
+          rel="shortcut icon"
+          href="/logos/coding.png"
+          type="image/x-icon"
+        />
+      </Head>
       <div className="flex flex-col items-center justify-center min-h-[calc(100vh-150px)] py- px-4 text-white">
 
         <div className="w-full max-w-4xl h-[60vh] rounded-lg shadow-lg overflow-y-scroll scroll-bar-hidden scrollbar-hide mb-2">

@@ -1,5 +1,6 @@
 // pages/contact.tsx
 import Layout from "@/components/Layout/Layout";
+import Head from "next/head";
 import { useState } from "react";
 
 export default function Index() {
@@ -24,6 +25,14 @@ export default function Index() {
 
   return (
     <Layout>
+        <Head>
+        <title>Developer || Contact</title>
+        <link
+          rel="shortcut icon"
+          href="/logos/coding.png"
+          type="image/x-icon"
+        />
+      </Head>
       <div className="h-[80vh] flex flex-col items-center justify-center px-4">
         <div className="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 border-2 border-white p-8 rounded-2xl shadow-lg">
           {/* Contact Info */}

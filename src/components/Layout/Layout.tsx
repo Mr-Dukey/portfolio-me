@@ -15,12 +15,10 @@ interface LayoutProps {
 }
 
 const curtainVariants = {
- hidden: { clipPath: "circle(0% at 50% 50%)" },
-  enter: { clipPath: "circle(150% at 50% 50%)" },
-  exit: { clipPath: "circle(0% at 50% 50%)" },
+  hidden: { opacity: 0, scale: 0.8, x: -20 },
+  enter: { opacity: 1, scale: 1, x: 0 },
+  exit: { opacity: 0, scale: 0.8, x: 20 },
 };
-
-
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { pathname } = useRouter();
@@ -28,7 +26,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className={Micorma.className}>
       <AnimatePresence>
         <div className="px-4 min-h-screen flex flex-col bg-black">
-            <Header />
+          <Header />
           <motion.div
             key={pathname} // Important for triggering animation on route change
             initial="hidden"
@@ -40,7 +38,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             {/* make main a flex column so child can grow */}
             <main className="flex-grow flex flex-col px-4">{children}</main>
           </motion.div>
-            <Footer />
+          <Footer />
         </div>
       </AnimatePresence>
     </div>
