@@ -1,0 +1,15 @@
+@import "tailwindcss";
+/* @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap'); */
+
+/* @theme {
+  --default-font-family:"Michroma", sans-serif;
+} */
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
